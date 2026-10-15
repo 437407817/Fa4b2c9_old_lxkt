@@ -1,0 +1,21 @@
+#ifndef __BSP_POWER_H
+#define __BSP_POWER_H
+
+#include "stm32fxxx.h"
+#include <stdio.h>
+
+
+void Init_Voltage_Monitoring_Config(void);
+
+void enable_pwr(void);
+
+
+void disable_pwr(void);
+
+
+#endif /* __SPI_H */
+
+
+
+
+

@@ -53,7 +53,8 @@ uint16_t RNG_Random_0_9999(void){
 }
 
 
-
+//RNG_Random_setArray((uint16_t *)&devData, sizeof(devData) / sizeof(uint16_t), 0, 0xFFFF);
+// ªÚ’ﬂ–¥≥…£∫sizeof(devData) / 2
 void RNG_Random_setArray(uint16_t *array,uint16_t arraycount,uint16_t min,uint16_t max){
 
 	

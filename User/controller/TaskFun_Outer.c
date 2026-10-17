@@ -68,7 +68,8 @@ TaskComps_t g_taskComps[] =
 	{0, 0,   FE_AFTER_WAITE_ASK_DATA_TIME,   Handle_SendSlaveAskdataAfter50MS},
   {0, 100,   100,   Usart485ComTask},	//100ms速度太快，写一半的时候就去读，会出错
 //	{0, 1000,   1000,   Handle_FeedIWatchDog},	
-	
+		{0, 1000,   5000,   Handle_can},	
+
 	{0, 10000,   10000,   Handle_showdata},
 //  {0, 2000,   2000,   DS1302_TEST_get},
 //	{0, 2000,   10000,   Handle_test},	

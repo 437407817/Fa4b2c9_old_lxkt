@@ -38,7 +38,7 @@ uint8_t IFCommuBoardAllNotOverTime(uint8_t overtime);
 void Handle_showdata(void);
 
 void Handle_ChangeCheckStop_ALLBoard_FinishWork_time(void);
-
+void Handle_can(void);
 
 #endif /* __TASKSINGLEWORK_H */
 

@@ -68,9 +68,9 @@ str_ChipEncode GV_SaveEEpChipEncode;
 
 str_SrceenChipEncode_data	GV_ScreenChipEncode;
 
+str_SendAllCanDataState		GV_SendAllCanDataState;
 
-
-
+str_ScreenSettingCANDataState     GV_ScreenSetting_CAN_DataState;
 
 extern uint16_t Array_WorkType_Stop[4];//待机中
 extern uint16_t Array_WorkType_Stop_English[ETE_Size];//待机中

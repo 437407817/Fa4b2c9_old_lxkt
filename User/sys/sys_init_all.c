@@ -67,7 +67,7 @@ SystickInit();
 NVIC_PriorityGroupConfig(NVIC_PriorityGroup_x);
 
 
-
+Delay(5000);
 	
 USART_All_Config();
 USART_485_A_Config();
@@ -77,7 +77,7 @@ USART_485_A_Config();
 	
 	IN_Io_ALL_GPIO_Config();
 	
-//	RNG_Random_Init();
+	RNG_Random_Init();
 	
 	OUT_Io_GPIO_Config();
 	
@@ -94,9 +94,9 @@ DS1302_GPIO_Init();
 
 	//EE_soft_Test();
 //SPI_ALL_Init();	
-//	Delay(200);
+	
 //OUT_Io_GPIO_Config();	
-
+CANx_config_Init();
 ////	LCD_Init();
 //CAN_Config_Init();	
 SEGGER_RTT_Init();

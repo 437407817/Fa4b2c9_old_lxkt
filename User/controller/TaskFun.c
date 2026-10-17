@@ -69,7 +69,7 @@ static uint8_t  TASK_NUM_MAX;
 		{
 			g_taskComps[i].run = 0;              // 标志清零
 			g_taskComps[i].pTaskFuncCb();        // 执行调度业务功能模块
-			//return;
+
 		}
 	}
 }

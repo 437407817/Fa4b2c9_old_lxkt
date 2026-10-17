@@ -509,12 +509,13 @@ void Handle_showdata(void){
 //	 GV_ScreenSetRunBoardState.Set_NowSingleRunState==EM_RunState_Run
 // DS1302_getTime_Fun();GV_ComuBoardState.commu_finishwork_FLAG
 	SYSTEM_getAllLightsStateCountersfun();
+	#if 0
 	SYSTEM_DEBUG_BINARY(GV_HardwareState.hard_board_whichIsActiveBit,"hard_board_whichIsActiveBit  \n");
 	SYSTEM_DEBUG_BINARY(GV_ComuBoardState.commu_needfinishwork_FLAG,"commu_needfinishwork_FLAG  \n");
 	SYSTEM_DEBUG_BINARY(GV_ComuBoardState.commu_finishwork_Old_FLAG,"commu_finishwork_Old_FLAG  \n");
 	SYSTEM_DEBUG_BINARY(GV_ComuBoardState.commu_finishwork_FLAG,"commu_finishwork_FLAG  \n");
 	
-	
+	#endif
 	
 //	GV_ComuBoardState.commu_finishwork_Old_FLAG
 //	SYSTEM_DEBUG_BINARY(GV_ComuBoardState.commu_finishwork_FLAG,"commu_finishwork_FLAG  \n");
@@ -538,8 +539,17 @@ void Handle_FeedIWatchDog(void){
 
 
 
+#include "./test/bsp_test_can.h" 
+#include "./service/CanFun.h"
 
-
+void Handle_can(void){
+//uint64_t i=GetSysRunTime();
+CanDataSendAlwaysFun();
+//SYSTEM_DEBUG("Handle_test 1s*** time=%u",(uint32_t)GetSysRunTime());
+//SYSTEM_DEBUG("CAN_Test---------");
+//	SYSTEM_DEBUG_ARRAY_MESSAGE((uint8_t *)GV_ScreenSetRunBoardState.Set_ChargeStateSelect,8,"----////=====hehe");
+//printf("Handle_test 1s*** time=%llu",i);
+}
 
 
 

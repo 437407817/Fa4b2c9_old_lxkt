@@ -43,12 +43,12 @@ void SEGGER_PcDao_McuToCanTransform(CAN_TypeDef* CANx1 ,uint8_t *array, uint16_t
 //Usart_SendArray(pUSARTx,array,num);
 	
 	
-	for(uint8_t i=0;i<num/8;i++){
-	
-	 CAN_SetMsg(&TxMessageSegger,CAN_Send_Id_1,array+i*8);
-		CAN_Transmit(CANx1, &TxMessageSegger);
-		
-	}
+//	for(uint8_t i=0;i<num/8;i++){
+//	
+//	 CAN_SetMsg(&TxMessageSegger,CAN_Send_Id_1,array+i*8);
+//		CAN_Transmit(CANx1, &TxMessageSegger);
+//		
+//	}
 }
 
 

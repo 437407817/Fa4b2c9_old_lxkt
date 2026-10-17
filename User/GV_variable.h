@@ -652,17 +652,58 @@ char        sd_work_state[BOARD_COUNT][9];
 
 
 
+typedef struct 
+{
+uint8_t CAN_Addr;//1~12
+uint8_t CAN_WorkStatus;//0=停止；1=并充；2=并放；3=维护； 6=并充完成；7=并放完成；8=维护完成；
+
+uint8_t RuningIntervalTime ;//已运行（充电次数、放电数次、均衡数次）的次数间隔倒计时的时间
+uint8_t RuningCount;//已运行（充电次数、放电数次、均衡数次）的次数
+
+uint16_t CAN_Vol[12];//mV
+int16_t CAN_Cur[12];//正=充电；负=放电，0.01A
+int16_t CAN_Cap[12];//容量Ah，正=充；负=放，0.1Ah
+int16_t CAN_Energy[12];//能量kwh，正=充；负=放，0.1kwh
+uint16_t CAN_BattWrokingStatus;//电池工作状态。B0：1=并充，0=未工作；……；B7：1=并充，0=未工作
+uint16_t CAN_BattDischargeStatus;//电池并放状态。B0：1=并放，0=未工作；……；B7：1=并放 ，0=未工作
+uint16_t CAN_BattCompleteStatus;//电池工作状态。B0：1=完成；0=未完成；……；B7：1=完成，0=未完成
+uint8_t CAN_ErrorBattNo;//故障电池号1~8
+uint8_t CAN_ErrorType;//故障类型。0=正常；1=并充过压；2=并放欠压；3=电池断线；4=并充过流；5=并放过流；6=串充过流；7=串充过压；8=串放过流；9=串放过压
+uint8_t CAN_BitControl1;//B0：0=正序，1=倒序
+uint8_t CAN_BitControl2;//
+uint16_t CAN_SUMvol;
+uint16_t CAN_Maxvol;	
+uint16_t CAN_Minvol;		
+uint16_t CAN_MaxDiffvol;	
+
+}str_SendSingleCanDataState;
+
+
+typedef struct 
+{
+str_SendSingleCanDataState	GV_SendSingleCanDataState[BOARD_COUNT_CHANGE]; 
+
+}str_SendAllCanDataState;
 
 
 
 
+typedef struct {
+    uint16_t Set_Bat_SingleBattRun[4];        // B0=1：第1支电池启动；B1=1：第2
+    uint16_t Set_Bat_Run_Vol_difference[4];  //压差
+    uint16_t Set_Bat_RunCount_polar[4];      //均衡次数，最多设3次
+    uint16_t Set_Bat_Runworkingmode[4];      //0=停止；1=恒流并充；2=并放；3=维护；
+    uint16_t Set_Bat_BattNum[4];             /*< 单板充电电池数量 */
 
+    uint16_t Set_Bat_UpperLimitParallelVol[4];   //并充截止电压 mV
+    uint16_t Set_Bat_UpperAlarmParallelVol[4];	 //并充报警上限电压 mV
 
+    uint16_t Set_Bat_LowVoltageAlarm[4];
+    uint16_t Set_Bat_ChargeCurrent_xmA[4];       /*< 充电电流 */
 
-
-
-
-
+    uint16_t Set_Bat_StopCapacity[4];     //容量截止 0.1Ah	
+    uint16_t Set_Bat_StopTime[4];         //时间截止
+}str_ScreenSettingCANDataState;
 
 
 

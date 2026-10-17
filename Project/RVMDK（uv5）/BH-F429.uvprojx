@@ -1248,6 +1248,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\User\service\ActiveMechineFun.c</FilePath>
             </File>
+            <File>
+              <FileName>CanFun.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\User\service\CanFun.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

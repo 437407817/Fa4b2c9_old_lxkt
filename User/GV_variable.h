@@ -670,11 +670,11 @@ uint16_t CAN_BattCompleteStatus;//电池工作状态。B0：1=完成；0=未完成；……；B7：
 uint8_t CAN_ErrorBattNo;//故障电池号1~8
 uint8_t CAN_ErrorType;//故障类型。0=正常；1=并充过压；2=并放欠压；3=电池断线；4=并充过流；5=并放过流；6=串充过流；7=串充过压；8=串放过流；9=串放过压
 uint8_t CAN_BitControl1;//B0：0=正序，1=倒序
-uint8_t CAN_BitControl2;//
-uint16_t CAN_SUMvol;
-uint16_t CAN_Maxvol;	
-uint16_t CAN_Minvol;		
-uint16_t CAN_MaxDiffvol;	
+uint8_t CAN_BitControl2;//保留
+uint16_t CAN_SUMvol;//本组总电压
+uint16_t CAN_Maxvol;//本组最大电压	
+uint16_t CAN_Minvol;//本组最小电压		
+uint16_t CAN_MaxDiffvol;//本组最大压差电压	
 
 }str_SendSingleCanDataState;
 

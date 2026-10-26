@@ -67,7 +67,7 @@ SystickInit();
 NVIC_PriorityGroupConfig(NVIC_PriorityGroup_x);
 
 
-Delay(5000);
+//Delay(5000);
 	
 USART_All_Config();
 USART_485_A_Config();

@@ -26,15 +26,15 @@ extern str_ScreenSettingCANDataState     GV_ScreenSetting_CAN_DataState;
 
 void CanDataDisposeFun(void){
 
-//	for(uint16_t i=0;i<BOARD_COUNT;i++)
-//{
-//	
-//memcpy(&GV_SendAllCanDataState.GV_SendSingleCanDataState[i],&GV_ComuBoardState.getSlaveUpdloadState[i],106);	
-//memcpy(&GV_SendAllCanDataState.GV_SendSingleCanDataState[i].CAN_SUMvol,&GV_ComuBoardState.screenBatVolComuState[i].SC_SUMvol,4*2);	
-//		
-//}
+	for(uint16_t i=0;i<BOARD_COUNT;i++)
+{
 	
-	RNG_Random_setArray((uint16_t *)&GV_SendAllCanDataState,sizeof(GV_SendAllCanDataState)/ sizeof(uint16_t),0,0xFFFF);
+memcpy(&GV_SendAllCanDataState.GV_SendSingleCanDataState[i],&GV_ComuBoardState.getSlaveUpdloadState[i],110);	
+memcpy(&GV_SendAllCanDataState.GV_SendSingleCanDataState[i].CAN_SUMvol,&GV_ComuBoardState.screenBatVolComuState[i].SC_SUMvol,4*2);	
+		
+}
+	
+//	RNG_Random_setArray((uint16_t *)&GV_SendAllCanDataState,sizeof(GV_SendAllCanDataState)/ sizeof(uint16_t),0,0xFFFF);
 }
 
 
@@ -45,7 +45,7 @@ CANx_IT_DataDispose();
     uint16_t ret;
 CanDataDisposeFun();
 //for(uint16_t i=0;i<BOARD_COUNT;i++){
-	#if 0
+	#if 1
     // 调用分包发送；0x18000001为CAN扩展帧ID
     ret = CANx_SendExtFrame_StructSplit(CAN_SEND_ID_1, (uint8_t *)&GV_SendAllCanDataState.GV_SendSingleCanDataState[0], 118);
 	delay_ms(1);
@@ -54,7 +54,7 @@ CANx_SendExtFrame_StructSplit(CAN_SEND_ID_2, (uint8_t *)&GV_SendAllCanDataState.
 	CANx_SendExtFrame_StructSplit(CAN_SEND_ID_3, (uint8_t *)&GV_SendAllCanDataState.GV_SendSingleCanDataState[2], 118);
 		delay_ms(1);
 	CANx_SendExtFrame_StructSplit(CAN_SEND_ID_4, (uint8_t *)&GV_SendAllCanDataState.GV_SendSingleCanDataState[3], 118);
-		delay_ms(1);
+//		delay_ms(1);
 	#endif
 if(ret == 0)
 {
@@ -120,7 +120,7 @@ ScreenSettingData_CopyToCanData();
 ret = CANx_SendExtFrame_StructSplit(CAN_SEND_ID_RETURN_1,
                                     (uint8_t *)&GV_ScreenSetting_CAN_DataState,
                                     sizeof(str_ScreenSettingCANDataState));
-	
+	delay_ms(1);
     /*
     示例：
     uint8_t val0 = data[0];

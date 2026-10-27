@@ -36,7 +36,7 @@
 /** @addtogroup CRYP_AESmodes
   * @{
   */ 
-#define ACTIVE_MECHINE 0
+#define ACTIVE_MECHINE 1
 
 extern str_ChipEncode GV_EEpromChipEncode;
 extern str_ChipEncode GV_SaveEEpChipEncode;

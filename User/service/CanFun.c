@@ -26,7 +26,7 @@ extern str_ScreenSettingCANDataState     GV_ScreenSetting_CAN_DataState;
 
 void CanDataDisposeFun(void){
 
-	for(uint16_t i=0;i<BOARD_COUNT;i++)
+	for(uint16_t i=0;i<BOARD_COUNT_CHANGE;i++)
 {
 	
 memcpy(&GV_SendAllCanDataState.GV_SendSingleCanDataState[i],&GV_ComuBoardState.getSlaveUpdloadState[i],110);	
